@@ -1,6 +1,6 @@
 # Messenger Discord
 ## Visão Geral
-Esse projeto contém o script de automação para mensagens automaticas em um servidor e canal específico.
+Esse projeto contém o script de automação para mensagens automáticas em um servidor e canal específico.
 ### Estrutura do Projeto
 * Bot Discord: Contém o código-fonte da automação.<br>
 * main.py: Ponto de entrada para a execução do robô.<br>
@@ -12,7 +12,7 @@ Esse projeto contém o script de automação para mensagens automaticas em um se
 * Biblioteca aiohttp.
 
 ### Instalação
-* Instale usando "pip install Discord".
+* Instale usando "pip install discord".
 * Instale usando "pip install aiohttp".
 
 ### Observação
