@@ -1,10 +1,10 @@
 import discord
-import aiohttp
+from messengerbot import messagebot
 
 def iniciar_bot():
-  server_id = "ID DO SERVER DESEJADO"
-  channel_id = "ID DO CANAL DESEJADO"
-  token = "TOKEN DO BOT DO DISCORD"
+  server_id = "SERVER ID"
+  channel_id = "CHANNEL ID"
+  token = "TOKEN BOT"
 
   class Client(discord.Client):
 
@@ -22,7 +22,7 @@ def iniciar_bot():
       # Envia msg automaticamente
       target_channel = self.get_channel(int(channel_id))
       if target_channel:
-        await target_channel.send(f"Mensagem de erro: {await 'Mensagem aqui!'}")
+        await target_channel.send(f"Mensagem de erro: {await messagebot()}")
 
       print('Mensagem Enviada')
 
@@ -34,11 +34,8 @@ def iniciar_bot():
                 description='Testando')
   async def slash2(interaction: discord.Interaction):
     await interaction.response.send_message(
-        f"Mensagem de erro: {await message_bot()}", ephemeral=False)
+        f"Mensagem de erro: {await messagebot()}", ephemeral=False)
 
   aclient.run(token)
 
   return 'Mensagem enviada'
-
-
-iniciar_bot()
