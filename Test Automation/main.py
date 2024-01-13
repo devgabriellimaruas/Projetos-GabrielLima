@@ -3,7 +3,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from statuscode import status_code
 
-status_code()
+status_code_api = status_code()
 
 def Mensageria():
     #Configurações do servidor SMTP e credenciais
@@ -22,7 +22,7 @@ def Mensageria():
     mensagem['To'] = destinatario
     mensagem['Subject'] = assunto
 
-    texto = status_code()
+    texto = 'O status da sua api é {status_code_api}'
 
     #Adicionar o corpo do e-mail em formato de texto
     mensagem.attach(MIMEText(texto, 'plain'))
