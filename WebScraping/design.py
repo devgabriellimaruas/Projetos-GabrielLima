@@ -1,5 +1,6 @@
 from openpyxl.styles import Font, Alignment
 
+
 def estilo_celulas(planilha):
     largura_titulos = {
         'A': (21, 'Estado'),
@@ -12,7 +13,7 @@ def estilo_celulas(planilha):
         celula_largura_titulo = planilha[f'{coluna}1']
         celula_largura_titulo.value = titulo
 
-    estilo_titulo = Font(bold=True, size= 14)
+    estilo_titulo = Font(bold=True, size=14)
     alignment_titulo = Alignment(horizontal='center', vertical='center')
 
     celula_titulo = ['A1', 'B1', 'C1']

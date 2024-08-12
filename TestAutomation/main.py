@@ -5,18 +5,19 @@ from statuscode import status_code
 
 status_code_api = status_code()
 
+
 def Mensageria():
-    #Configurações do servidor SMTP e credenciais
+    # Configurações do servidor SMTP e credenciais
     smtplib_server = 'smtp.seudominio.com'
-    smtplib_port = 1 #Substituir o 1 por uma porta no formato int
+    smtplib_port = 1  # Substituir o 1 por uma porta no formato int
     smtplib_username = 'Seu email'
     smtplib_password = 'Sua senha'
 
-    #Destinatário e informações do e-mail
+    # Destinatário e informações do e-mail
     destinatario = 'Email do destinatario'
     assunto = 'Assunto do email'
 
-    #Criar o objeto MIMEMultipart para o e-mail
+    # Criar o objeto MIMEMultipart para o e-mail
     mensagem = MIMEMultipart()
     mensagem['From'] = smtplib_username
     mensagem['To'] = destinatario
@@ -24,20 +25,20 @@ def Mensageria():
 
     texto = 'O status da sua api é {status_code_api}'
 
-    #Adicionar o corpo do e-mail em formato de texto
+    # Adicionar o corpo do e-mail em formato de texto
     mensagem.attach(MIMEText(texto, 'plain'))
 
     try:
-        #Configurar a conexão SMTP
+        # Configurar a conexão SMTP
         server = smtplib.SMTP(smtplib_server, smtplib_port)
         server.starttls()
         server.login(smtplib_username, smtplib_password)
 
-        #Enviar o e-mail
+        # Enviar o e-mail
         server.sendmail(smtplib_username, destinatario, mensagem.as_string())
         print(f'E-mail enviado com sucesso para {destinatario}: {assunto}')
 
-        #Fechar a conexão SMTP
+        # Fechar a conexão SMTP
         server.quit()
 
     except Exception as e:
