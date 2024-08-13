@@ -3,7 +3,8 @@ from flask import Flask, jsonify, request
 import firebase_admin
 from firebase_admin import credentials, firestore, auth
 
-cred = credentials.Certificate()
+cred = credentials.Certificate(
+    './remake-portaldeinvestidores-firebase-adminsdk-qicex-c999fc9f2f.json')
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()
