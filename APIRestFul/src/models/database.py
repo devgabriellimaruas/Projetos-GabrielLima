@@ -1,10 +1,11 @@
 from datetime import datetime
+import os
 from flask import Flask, jsonify, request
 import firebase_admin
 from firebase_admin import credentials, firestore, auth
 
-cred = credentials.Certificate(
-    './remake-portaldeinvestidores-firebase-adminsdk-qicex-c999fc9f2f.json')
+cred_path = os.path.join(os.path.dirname(__file__), 'remake-portaldeinvestidores-firebase-adminsdk-qicex-c999fc9f2f.json')
+cred = credentials.Certificate(cred_path)
 firebase_admin.initialize_app(cred)
 
 db = firestore.client()
@@ -83,7 +84,7 @@ def patch_user(user_id):
     
     return jsonify(updated_user), 200
 
-@app.route('users/<string:id>', method=['DELETE'])
+@app.route('/users/<string:id>', methods=['DELETE'])
 def delete_user(user_id):
     user_ref = db.collection('users').document(user_id)
     user = user_ref.get()
