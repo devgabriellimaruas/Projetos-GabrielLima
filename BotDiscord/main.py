@@ -1,11 +1,10 @@
 import discord
-from messengerbot import messagebot
 
 
-def iniciar_bot():
-    server_id = 'SERVER ID'
-    channel_id = 'CHANNEL ID'
-    token = 'TOKEN BOT'
+def iniciar_bot(mensagem):
+    server_id = 'id do servidor' #COLOCAR EM COMO INT
+    channel_id = 'id do canal'  # COLOCAR EM COMO INT
+    token = 'token do seu bot'  # MANTER EM COMO STR
 
     class Client(discord.Client):
 
@@ -14,18 +13,16 @@ def iniciar_bot():
             self.synced = False
 
         async def on_ready(self):
-            await self.wait_until_ready()
+            print(f"Entramos como {self.user}")
             if not self.synced:
                 await tree.sync(guild=discord.Object(id=server_id))
-            self.synced = True
-            print(f"Entramos como {self.user}")
+                self.synced = True
+                print("Comandos sincronizados")
 
-            # Envia msg automaticamente
-            target_channel = self.get_channel(int(channel_id))
+            target_channel = self.get_channel(channel_id)
             if target_channel:
-                await target_channel.send(f"Mensagem de erro: {await messagebot()}")
-
-            print('Mensagem Enviada')
+                await target_channel.send(mensagem)
+                print('Mensagem Enviada')
 
     aclient = Client()
     tree = discord.app_commands.CommandTree(aclient)
@@ -35,8 +32,12 @@ def iniciar_bot():
                   description='Testando')
     async def slash2(interaction: discord.Interaction):
         await interaction.response.send_message(
-            f"Mensagem de erro: {await messagebot()}", ephemeral=False)
+            mensagem, ephemeral=False)
 
     aclient.run(token)
 
     return 'Mensagem enviada'
+
+
+mensagem = 'Olá'
+iniciar_bot(mensagem)
