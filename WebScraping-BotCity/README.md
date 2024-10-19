@@ -18,4 +18,5 @@ Esse projeto contém o script de automação para fazer uma coleta de dados de u
 ### Observação
 * Este script de automação só pode ser totalmente automatizado com todas as bibliotecas e frameworks instalados corretamente. 
 * Nesse código a API utilizada é pública.
+* Certifique-se de que o arquivo "chromedriver.exe" esteja na mesma versão que o seu browser.
 * Rode o projeto utilizando "python bot.py".
