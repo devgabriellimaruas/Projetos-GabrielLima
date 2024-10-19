@@ -26,7 +26,6 @@ def main():
     lista_estados.sort()
 
     cont = 0
-    
     for estado in lista_estados:
         if not bot.find( "pesquisar_estado", matching=0.97, waiting_time=10000):
             not_found("pesquisar_estado")
@@ -39,14 +38,14 @@ def main():
         bot.scroll_down(2)
 
         # area territorial
-        if not bot.find( "area", matching=0.97, waiting_time=10000):
+        if not bot.find( "area", matching=0.80, waiting_time=10000):
             not_found("area")
         bot.double_click_relative(414, 16)
         bot.control_c()
         area = bot.get_clipboard()
 
         # populacao
-        if not bot.find( "populacao", matching=0.97, waiting_time=10000):
+        if not bot.find( "populacao", matching=0.80, waiting_time=10000):
             not_found("populacao")
         bot.double_click_relative(423, 13)
         bot.control_c()
@@ -54,21 +53,21 @@ def main():
         bot.scroll_down(2)
 
         # Governador
-        if not bot.find( "governador", matching=0.97, waiting_time=10000):
+        if not bot.find( "governador", matching=0.80, waiting_time=10000):
             not_found("governador")
         bot.triple_click_relative(245, 7)
         bot.control_c()
         governador = bot.get_clipboard()
 
         # capital
-        if not bot.find( "capital", matching=0.97, waiting_time=10000):
+        if not bot.find( "capital", matching=0.80, waiting_time=10000):
             not_found("capital")
         bot.triple_click_relative(196, 6)
         bot.control_c()
         capital = bot.get_clipboard()
 
         # gentilico
-        if not bot.find( "gentilico", matching=0.97, waiting_time=10000):
+        if not bot.find( "gentilico", matching=0.80, waiting_time=10000):
             not_found("gentilico")
         bot.triple_click_relative(195, 7)
         bot.control_c()
