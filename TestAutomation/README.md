@@ -8,7 +8,6 @@ Esse projeto contém o script de automação para saber se uma API está funcion
 
 ### Requisitos do Sistema
 * Python 3.12.0.
-* Biblioteca smtplib.
 * Biblioteca requests.
 
 ### Instalação
