@@ -19,7 +19,6 @@ Criar_Arquivo()
 
 # Ler dados do arquivo Excel
 
-
 def ler_dados_excel(arquivo_excel):
     abrir_excel = openpyxl.load_workbook(arquivo_excel)
     planilha = abrir_excel.active
