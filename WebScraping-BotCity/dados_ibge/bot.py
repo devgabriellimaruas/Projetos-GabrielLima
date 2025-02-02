@@ -1,3 +1,4 @@
+import os
 from src.models.estados import estados
 from src.services.excel import excel
 from botcity.web import WebBot, Browser, By
@@ -16,7 +17,7 @@ def main():
     # Configure whether or not to run on headless mode
     bot.headless = False
 
-    bot.driver_path = "./chromedriver.exe"
+    bot.driver_path = r"C:\Users\User\Documents\GitHub\GitHubGabrielLima\Projetos-GabrielLima\WebScraping-BotCity\dados_ibge\chromedriver.exe"
 
     bot.browse("https://www.ibge.gov.br/cidades-e-estados/")
     bot.maximize_window()
