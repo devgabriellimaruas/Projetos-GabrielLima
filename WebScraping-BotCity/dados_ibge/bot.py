@@ -1,4 +1,3 @@
-import os
 from src.models.estados import estados
 from src.services.excel import excel
 from botcity.web import WebBot, Browser, By
