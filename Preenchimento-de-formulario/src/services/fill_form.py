@@ -1,5 +1,7 @@
 import pyautogui, time
 
+from read_excel import read_excel
+
 def fill_form(df):
     print("Início da automação")
     pyautogui.press("win")
@@ -12,11 +14,13 @@ def fill_form(df):
     
     pyautogui.click(x=574, y=838)
     time.sleep(2)
-    pyautogui.hotkey('win', 'up')
+    # pyautogui.hotkey('win', 'up')Ana
     pyautogui.click(x=720, y=63)
     pyautogui.write("https://projetos-devgabriellimaruas-yyd3jf.flutterflow.app/formulario")
     pyautogui.press("enter")
     time.sleep(3)
+    
+    # print(pyautogui.position())
     
     for index, row in df.head().iterrows():
         time.sleep(1)
@@ -41,17 +45,21 @@ def fill_form(df):
         pyautogui.write(row["Cidade"])
 
         #CEP
-        pyautogui.click(x=1008, y=696)
+        pyautogui.click(x=1008, y=706)
         pyautogui.write(row["CEP"])
 
         #Salvar
-        pyautogui.click(x=1010, y=771)
+        pyautogui.click(x=1165, y=785)
 
     #Histórico
-    pyautogui.click(x=862, y=769)
+    pyautogui.click(x=789, y=790)
 
     time.sleep(10)
     
     #Fechar
     pyautogui.click(x=1888, y=18)
     return "Fim da automação"
+
+if __name__ == "__main__":
+    df = read_excel() 
+    fill_form(df)

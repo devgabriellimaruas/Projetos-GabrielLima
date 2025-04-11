@@ -2,19 +2,21 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.service import Service
 import time
 
 def data_collect_service():
-    chromedriver_path = r"C:\Users\User\Documents\GitHub\GitHubGabrielLima\Projetos-GabrielLima\Coletor-de-perifericos-Kabum\src\chromedriver.exe"
+    chromedriver_path = r"D:\GitHub\devgabriellimaruas\Projetos-GabrielLima\Coletor-de-perifericos-Kabum\src\chromedriver.exe"
 
     options = webdriver.ChromeOptions()
     options.add_argument("--start-maximized")
     options.add_argument("--disable-notifications")
     options.add_argument("--disable-logging")
     options.add_argument("--log-level=3")
-    options.add_argument("--headless")
+    options.add_argument("--headless") # Executa o Chrome em segundo plano (sem interface gráfica)
 
-    bot = webdriver.Chrome(executable_path=chromedriver_path, options=options)
+    service = Service(executable_path=chromedriver_path)
+    bot = webdriver.Chrome(service=service, options=options)
 
     try:
         print("Começando o processo de coletar dados dos periféricos da Kabum")
